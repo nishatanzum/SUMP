@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Utility Management Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= LOGIN SCREEN ================= -->
+
+<div id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="login-logo">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <h1>Smart Utility</h1>
+        <p class="login-subtitle">
+            Management Platform
+        </p>
+
+        <p class="login-description">
+            Manage your electricity bills, complaints and
+            service information easily.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email"
+                       id="email"
+                       placeholder="Email address"
+                       required>
+            </div>
+
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password"
+                       id="password"
+                       placeholder="Password"
+                       required>
+            </div>
+
+            <button type="submit" class="primary-btn">
+                Login
+            </button>
+
+        </form>
+
+        <p class="demo-text">
+            Demo: enter any email and password
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN APPLICATION ================= -->
+
+<div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+                <h2>Smart Utility</h2>
+                <span>Management Platform</span>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <button class="nav-item active"
+                    data-page="dashboard">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="nav-item"
+                    data-page="bills">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+                <span>My Bills</span>
+            </button>
+
+            <button class="nav-item"
+                    data-page="analytics">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Usage Analytics</span>
+            </button>
+
+            <button class="nav-item"
+                    data-page="complaints">
+                <i class="fa-solid fa-comments"></i>
+                <span>Complaints</span>
+            </button>
+
+            <button class="nav-item"
+                    data-page="outage">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <span>Outage Map</span>
+            </button>
+
+            <button class="nav-item"
+                    data-page="notifications">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+                <span class="notification-count">3</span>
+            </button>
+
+            <button class="nav-item"
+                    data-page="profile">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item logout-btn"
+                    id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button id="menuBtn"
+                    class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="page-heading">
+                <h2 id="pageTitle">Dashboard</h2>
+                <p id="pageSubtitle">
+                    Welcome back to your utility dashboard.
+                </p>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-btn"
+                        onclick="showPage('notifications')">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="dot"></span>
+                </button>
+
+                <div class="user-mini">
+
+                    <div class="avatar">
+                        R
+                    </div>
+
+                    <div>
+                        <strong>Rahim Khan</strong>
+                        <small>Consumer</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTAINER -->
+
+        <section class="content">
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <div id="dashboard" class="page active-page">
+
+                <div class="welcome-box">
+
+                    <div>
+                        <span class="small-label">
+                            CONSUMER DASHBOARD
+                        </span>
+
+                        <h1>Hello, Rahim! 👋</h1>
+
+                        <p>
+                            Here's an overview of your electricity
+                            account.
+                        </p>
+                    </div>
+
+                    <div class="welcome-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- STAT CARDS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon bill-icon">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+
+                        <div>
+                            <span>Current Due</span>
+                            <h2>৳ 1,250</h2>
+                            <small>Due: 25 May 2025</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon usage-icon">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div>
+                            <span>This Month</span>
+                            <h2>145 kWh</h2>
+                            <small>8% higher than last month</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon complaint-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+
+                        <div>
+                            <span>Complaints</span>
+                            <h2>2</h2>
+                            <small>1 currently in progress</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon outage-icon">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+
+                        <div>
+                            <span>Area Status</span>
+                            <h2>Normal</h2>
+                            <small>No active outage</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <!-- RECENT BILLS -->
+
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h3>Recent Bills</h3>
+                                <p>Your latest electricity bills</p>
+                            </div>
+
+                            <button class="text-btn"
+                                    onclick="showPage('bills')">
+                                View All
+                            </button>
+
+                        </div>
+
+                        <div class="table-wrapper">
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Usage</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>May 2025</td>
+                                        <td>145 kWh</td>
+                                        <td>৳1,250</td>
+                                        <td>
+                                            <span class="badge unpaid">
+                                                Unpaid
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>April 2025</td>
+                                        <td>132 kWh</td>
+                                        <td>৳1,180</td>
+                                        <td>
+                                            <span class="badge paid">
+                                                Paid
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>March 2025</td>
+                                        <td>120 kWh</td>
+                                        <td>৳1,050</td>
+                                        <td>
+                                            <span class="badge paid">
+                                                Paid
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h3>Quick Actions</h3>
+                                <p>Frequently used services</p>
+                            </div>
+
+                        </div>
+
+                        <div class="quick-actions">
+
+                            <button onclick="showPage('bills')">
+                                <i class="fa-solid fa-file-invoice"></i>
+                                View Bill
+                            </button>
+
+                            <button onclick="openPayment()">
+                                <i class="fa-solid fa-credit-card"></i>
+                                Pay Bill
+                            </button>
+
+                            <button onclick="showPage('complaints')">
+                                <i class="fa-solid fa-comment-dots"></i>
+                                Submit Complaint
+                            </button>
+
+                            <button onclick="showPage('outage')">
+                                <i class="fa-solid fa-map"></i>
+                                Check Outage
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI INSIGHT -->
+
+                <div class="ai-card">
+
+                    <div class="ai-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="ai-label">
+                            SMART INSIGHT
+                        </span>
+
+                        <h3>Your electricity usage increased this month.</h3>
+
+                        <p>
+                            Your consumption is 8% higher than last month.
+                            Consider reducing unnecessary appliance usage
+                            to keep your next bill lower.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= BILLS ================= -->
+
+            <div id="bills" class="page">
+
+                <div class="section-header">
+
+                    <div>
+                        <h1>My Bills</h1>
+                        <p>View and manage your electricity bills.</p>
+                    </div>
+
+                    <button class="primary-btn small"
+                            onclick="openPayment()">
+                        <i class="fa-solid fa-credit-card"></i>
+                        Pay Current Bill
+                    </button>
+
+                </div>
+
+
+                <div class="bill-summary">
+
+                    <div>
+                        <span>Current Bill</span>
+                        <h2>৳ 1,250</h2>
+                    </div>
+
+                    <div>
+                        <span>Due Date</span>
+                        <h2>25 May 2025</h2>
+                    </div>
+
+                    <div>
+                        <span>Meter Number</span>
+                        <h2>123456789</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Bill History</h3>
+                            <p>Your previous electricity bills</p>
+                        </div>
+
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Units</th>
+                                    <th>Amount</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>May 2025</td>
+                                    <td>145 kWh</td>
+                                    <td>৳1,250</td>
+                                    <td>25 May 2025</td>
+                                    <td>
+                                        <span class="badge unpaid">
+                                            Unpaid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="table-btn"
+                                                onclick="openPayment()">
+                                            Pay
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>April 2025</td>
+                                    <td>132 kWh</td>
+                                    <td>৳1,180</td>
+                                    <td>25 Apr 2025</td>
+                                    <td>
+                                        <span class="badge paid">
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="table-btn">
+                                            Download
+                                        </button>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>March 2025</td>
+                                    <td>120 kWh</td>
+                                    <td>৳1,050</td>
+                                    <td>25 Mar 2025</td>
+                                    <td>
+                                        <span class="badge paid">
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <button class="table-btn">
+                                            Download
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ANALYTICS ================= -->
+
+            <div id="analytics" class="page">
+
+                <div class="section-header">
+
+                    <div>
+                        <h1>Usage Analytics</h1>
+                        <p>
+                            Understand your electricity consumption.
+                        </p>
+                    </div>
+
+                    <select id="periodSelect">
+                        <option>This Year</option>
+                        <option>Last 6 Months</option>
+                        <option>Last 3 Months</option>
+                    </select>
+
+                </div>
+
+
+                <div class="analytics-grid">
+
+                    <div class="card chart-card">
+
+                        <div class="card-header">
+                            <div>
+                                <h3>Monthly Consumption</h3>
+                                <p>Electricity usage in kWh</p>
+                            </div>
+                        </div>
+
+                        <div class="chart">
+
+                            <div class="bar" style="height:55%">
+                                <span>110</span>
+                                <small>Jan</small>
+                            </div>
+
+                            <div class="bar" style="height:63%">
+                                <span>126</span>
+                                <small>Feb</small>
+                            </div>
+
+                            <div class="bar" style="height:60%">
+                                <span>120</span>
+                                <small>Mar</small>
+                            </div>
+
+                            <div class="bar" style="height:66%">
+                                <span>132</span>
+                                <small>Apr</small>
+                            </div>
+
+                            <div class="bar active-bar" style="height:72%">
+                                <span>145</span>
+                                <small>May</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="analytics-side">
+
+                        <div class="metric-card">
+                            <span>Average Usage</span>
+                            <h2>127 kWh</h2>
+                            <small>Per month</small>
+                        </div>
+
+                        <div class="metric-card">
+                            <span>Predicted Next Bill</span>
+                            <h2>৳ 1,370</h2>
+                            <small>Approximate</small>
+                        </div>
+
+                        <div class="metric-card">
+                            <span>Monthly Change</span>
+                            <h2>+8%</h2>
+                            <small>Compared with April</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ai-card">
+
+                    <div class="ai-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <div>
+
+                        <span class="ai-label">
+                            SMART ENERGY ADVICE
+                        </span>
+
+                        <h3>
+                            You may reduce your next bill by
+                            lowering peak-hour usage.
+                        </h3>
+
+                        <p>
+                            Try switching off unused appliances and
+                            reducing unnecessary air-conditioner usage.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= COMPLAINTS ================= -->
+
+            <div id="complaints" class="page">
+
+                <div class="section-header">
+
+                    <div>
+                        <h1>Complaints</h1>
+                        <p>
+                            Report and track electricity-related issues.
+                        </p>
+                    </div>
+
+                    <button class="primary-btn small"
+                            onclick="openComplaintModal()">
+                        <i class="fa-solid fa-plus"></i>
+                        New Complaint
+                    </button>
+
+                </div>
+
+
+                <div class="complaint-cards">
+
+                    <div class="complaint-item">
+
+                        <div class="complaint-symbol">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div class="complaint-info">
+
+                            <h3>Power Outage</h3>
+
+                            <p>
+                                Complaint ID: CMP12345
+                            </p>
+
+                            <small>
+                                Submitted: 12 May 2025
+                            </small>
+
+                        </div>
+
+                        <div>
+                            <span class="badge progress">
+                                In Progress
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="complaint-item">
+
+                        <div class="complaint-symbol">
+                            <i class="fa-solid fa-gauge"></i>
+                        </div>
+
+                        <div class="complaint-info">
+
+                            <h3>Meter Issue</h3>
+
+                            <p>
+                                Complaint ID: CMP12346
+                            </p>
+
+                            <small>
+                                Submitted: 5 May 2025
+                            </small>
+
+                        </div>
+
+                        <div>
+                            <span class="badge resolved">
+                                Resolved
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPLAINT TIMELINE -->
+
+                <div class="card complaint-detail">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Complaint #CMP12345</h3>
+                            <p>Power Outage — Mirpur-10</p>
+                        </div>
+
+                        <span class="badge progress">
+                            In Progress
+                        </span>
+
+                    </div>
+
+
+                    <div class="timeline">
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-dot"></div>
+                            <div>
+                                <h4>Complaint Submitted</h4>
+                                <p>12 May, 10:30 AM</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-dot"></div>
+                            <div>
+                                <h4>Technician Assigned</h4>
+                                <p>12 May, 11:00 AM</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item active">
+                            <div class="timeline-dot"></div>
+                            <div>
+                                <h4>Technician On The Way</h4>
+                                <p>12 May, 11:45 AM</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div>
+                                <h4>Resolved</h4>
+                                <p>Waiting for completion</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= OUTAGE ================= -->
+
+            <div id="outage" class="page">
+
+                <div class="section-header">
+
+                    <div>
+                        <h1>Outage Map</h1>
+                        <p>
+                            Check electricity service status in your area.
+                        </p>
+                    </div>
+
+                    <span class="status-online">
+                        <i class="fa-solid fa-circle"></i>
+                        System Online
+                    </span>
+
+                </div>
+
+
+                <div class="outage-layout">
+
+                    <div class="fake-map">
+
+                        <div class="map-road road-one"></div>
+                        <div class="map-road road-two"></div>
+                        <div class="map-road road-three"></div>
+
+                        <div class="map-marker normal-marker"
+                             style="top:30%;left:25%;">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div class="map-marker outage-marker"
+                             style="top:50%;left:65%;">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div class="map-marker maintenance-marker"
+                             style="top:70%;left:40%;">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+
+                        <div class="map-label">
+                            Mirpur Area
+                        </div>
+
+                    </div>
+
+
+                    <div class="outage-panel">
+
+                        <h3>Area Status</h3>
+
+                        <div class="area-status normal">
+                            <span></span>
+                            <div>
+                                <strong>Mirpur-10</strong>
+                                <small>Normal</small>
+                            </div>
+                        </div>
+
+                        <div class="area-status outage">
+                            <span></span>
+                            <div>
+                                <strong>Mirpur-1</strong>
+                                <small>Power Outage</small>
+                            </div>
+                        </div>
+
+                        <div class="area-status maintenance">
+                            <span></span>
+                            <div>
+                                <strong>Mirpur-2</strong>
+                                <small>Maintenance</small>
+                            </div>
+                        </div>
+
+                        <div class="legend">
+
+                            <p>
+                                <span class="legend-dot normal-dot"></span>
+                                Normal
+                            </p>
+
+                            <p>
+                                <span class="legend-dot maintenance-dot"></span>
+                                Maintenance
+                            </p>
+
+                            <p>
+                                <span class="legend-dot outage-dot"></span>
+                                Power Outage
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= NOTIFICATIONS ================= -->
+
+            <div id="notifications" class="page">
+
+                <div class="section-header">
+
+                    <div>
+                        <h1>Notifications</h1>
+                        <p>
+                            Stay updated about your utility services.
+                        </p>
+                    </div>
+
+                    <button class="text-btn"
+                            id="markReadBtn">
+                        Mark all as read
+                    </button>
+
+                </div>
+
+
+                <div class="notification-list">
+
+                    <div class="notification-card unread">
+
+                        <div class="notification-icon outage-notification">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div>
+                            <h3>Power outage reported</h3>
+                            <p>
+                                A power outage has been reported
+                                in the Mirpur-1 area.
+                            </p>
+                            <small>10 minutes ago</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="notification-card unread">
+
+                        <div class="notification-icon complaint-notification">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+
+                        <div>
+                            <h3>Complaint updated</h3>
+                            <p>
+                                Your complaint CMP12345 has been
+                                assigned to a technician.
+                            </p>
+                            <small>1 hour ago</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="notification-card">
+
+                        <div class="notification-icon bill-notification">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+
+                        <div>
+                            <h3>New bill generated</h3>
+                            <p>
+                                Your electricity bill for May 2025
+                                is now available.
+                            </p>
+                            <small>2 days ago</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROFILE ================= -->
+
+            <div id="profile" class="page">
+
+                <div class="section-header">
+
+                    <div>
+                        <h1>My Profile</h1>
+                        <p>
+                            Manage your account information.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+                    <div class="card profile-card">
+
+                        <div class="large-avatar">
+                            R
+                        </div>
+
+                        <h2>Rahim Khan</h2>
+
+                        <p>Electricity Consumer</p>
+
+                        <span class="profile-status">
+                            Active Account
+                        </span>
+
+                    </div>
+
+
+                    <div class="card">
+
+                        <div class="card-header">
+                            <div>
+                                <h3>Personal Information</h3>
+                                <p>Your account details</p>
+                            </div>
+
+                            <button class="text-btn">
+                                Edit
+                            </button>
+                        </div>
+
+                        <div class="profile-details">
+
+                            <div>
+                                <span>Full Name</span>
+                                <strong>Rahim Khan</strong>
+                            </div>
+
+                            <div>
+                                <span>Email</span>
+                                <strong>rahim@example.com</strong>
+                            </div>
+
+                            <div>
+                                <span>Meter Number</span>
+                                <strong>123456789</strong>
+                            </div>
+
+                            <div>
+                                <span>Service Area</span>
+                                <strong>Mirpur-10, Dhaka</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= COMPLAINT MODAL ================= -->
+
+<div id="complaintModal"
+     class="modal">
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                onclick="closeComplaintModal()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Submit Complaint</h2>
+
+        <p>
+            Tell us about the electricity-related problem.
+        </p>
+
+        <form id="complaintForm">
+
+            <label>Complaint Category</label>
+
+            <select id="complaintCategory" required>
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option>Power Outage</option>
+                <option>Meter Issue</option>
+                <option>Billing Issue</option>
+                <option>Transformer Issue</option>
+                <option>Other</option>
+
+            </select>
+
+
+            <label>Description</label>
+
+            <textarea id="complaintDescription"
+                      rows="5"
+                      placeholder="Describe the problem..."
+                      required></textarea>
+
+
+            <label>Upload Photo (Optional)</label>
+
+            <input type="file"
+                   accept="image/*">
+
+
+            <button type="submit"
+                    class="primary-btn">
+                Submit Complaint
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PAYMENT MODAL ================= -->
+
+<div id="paymentModal"
+     class="modal">
+
+    <div class="modal-card">
+
+        <button class="modal-close"
+                onclick="closePayment()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Pay Electricity Bill</h2>
+
+        <p>
+            Current bill amount
+        </p>
+
+        <div class="payment-amount">
+            ৳ 1,250
+        </div>
+
+        <label>Payment Method</label>
+
+        <select id="paymentMethod">
+
+            <option>bKash</option>
+            <option>Nagad</option>
+            <option>Credit / Debit Card</option>
+            <option>Bank Transfer</option>
+
+        </select>
+
+        <button class="primary-btn"
+                id="payBtn">
+            Pay ৳1,250
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SUCCESS TOAST ================= -->
+
+<div id="toast"
+     class="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Success
+    </span>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
