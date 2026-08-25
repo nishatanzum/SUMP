@@ -96,6 +96,7 @@ loginForm.addEventListener("submit", function(event) {
 
         showToast("Login successful!");
 
+        
     }
 
 });
